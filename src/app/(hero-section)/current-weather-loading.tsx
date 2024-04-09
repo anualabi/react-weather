@@ -1,6 +1,6 @@
 import { Container, Skeleton } from "@/components/ui";
 
-export default function LoadingSkeleton() {
+export default function CurrentWeatherLoading() {
   return (
     <Container className="h-full flex flex-col items-center justify-center">
       <Skeleton className="h-6 w-48 mb-2" />

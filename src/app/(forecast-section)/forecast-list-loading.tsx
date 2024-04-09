@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui";
 
-export default function LoadingSkeleton() {
+export default function ForecastListLoading() {
   return (
     <div className="flex flex-col xs:flex-row xs:flex-wrap items-center xs:justify-start xl:justify-between my-8">
       {[...Array(5)].map((_, index) => (

@@ -5,7 +5,7 @@ type ForecastListProps = Readonly<{
   cityKey: string;
 }>;
 
-export default async function FiveDayForecast({ cityKey }: ForecastListProps) {
+export default async function ForecastList({ cityKey }: ForecastListProps) {
   const forecast = await getDailyForecast(cityKey, 5);
 
   return (

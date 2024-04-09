@@ -1,7 +1,8 @@
 import { P } from "@/components/ui";
+import { getDayOfWeek } from "@/lib/utils";
 
 type TemperatureInfoProps = Readonly<{
-  date: string;
+  date: Date;
   iconPhrase: string;
 }>;
 
@@ -11,7 +12,7 @@ export default function TemperatureInfo({
 }: TemperatureInfoProps) {
   return (
     <P className="font-black text-white">
-      {date}, {iconPhrase}
+      {getDayOfWeek(date)}, {iconPhrase}
     </P>
   );
 }

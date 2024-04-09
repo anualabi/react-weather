@@ -1,9 +1,23 @@
+import NoCityFound from "@/components/no-city-found";
 import { H2 } from "@/components/ui";
+import { getCity } from "@/lib/services";
 import { DailyWeatherEvolution } from "./(chart-section)";
 import { ForecastList } from "./(forecast-section)";
 import { CitySearch, CurrentWeather } from "./(hero-section)";
 
-export default function Home() {
+type HomeProps = Readonly<{
+  searchParams: {
+    city?: string;
+  };
+}>;
+
+export default async function Home({ searchParams }: HomeProps) {
+  const city = searchParams?.city ?? "Amsterdam";
+
+  const cities = await getCity(city);
+  if (cities.length === 0) {
+    return <NoCityFound />;
+  }
   return (
     <main>
       <section className="flex flex-col h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] xl:h-[calc(100vh-96px)]">
@@ -11,7 +25,7 @@ export default function Home() {
           <CitySearch />
         </div>
         <div className="flex-1 bg-secondary">
-          <CurrentWeather />
+          <CurrentWeather city={cities[0]} />
         </div>
       </section>
       <section className="min-h-96 max-w-7xl mx-auto my-32 px-5">

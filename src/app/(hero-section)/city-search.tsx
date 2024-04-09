@@ -1,6 +1,25 @@
+"use client";
+
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
+
 import { Container, Input, Label } from "@/components/ui";
 
 export default function CitySearchInput({ minSearchLength = 3 }) {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const handleSearch = useDebouncedCallback((term: string) => {
+    const params = new URLSearchParams(searchParams);
+    if (term) {
+      params.set("city", term);
+    } else {
+      params.delete("city");
+    }
+    replace(`${pathname}?${params.toString()}`);
+  }, 1000);
+
   return (
     <Container className="max-w-xl mx-auto flex flex-col justify-center">
       <Label
@@ -14,6 +33,11 @@ export default function CitySearchInput({ minSearchLength = 3 }) {
         type="search"
         placeholder="Enter city name"
         aria-label="Search for a city"
+        onChange={(e) => {
+          if (e.target.value.length >= minSearchLength)
+            handleSearch(e.target.value);
+        }}
+        defaultValue={searchParams.get("city")?.toString()}
       />
     </Container>
   );

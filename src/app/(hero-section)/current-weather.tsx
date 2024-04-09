@@ -1,18 +1,30 @@
 import { Container } from "@/components/ui";
+import { getDailyForecast } from "@/lib/services";
+import { LocationAPIResponse } from "@/lib/types";
 import CityDisplay from "./city-display";
 import TemperatureInfo from "./temperature-info";
 import TemperatureToggle from "./temperature-toggle";
 import TemperatureValue from "./temperature-value";
 
-export default async function CurrentWeather() {
+type CurrentWeatherProps = Readonly<{
+  city: Pick<LocationAPIResponse, "Key" | "EnglishName" | "Country">;
+}>;
+
+export default async function CurrentWeather({ city }: CurrentWeatherProps) {
+  const forecast = await getDailyForecast(city.Key);
+  const dailyForecast = forecast.DailyForecasts[0];
+
   return (
     <Container className="h-full flex flex-col items-center justify-center">
-      <CityDisplay cityName="Amsterdam" countryId="NL" />
+      <CityDisplay cityName={city.EnglishName} countryId={city.Country.ID} />
       <div className="flex items-center mb-7">
-        <TemperatureValue value={66} />
+        <TemperatureValue value={dailyForecast.Temperature.Maximum.Value} />
         <TemperatureToggle />
       </div>
-      <TemperatureInfo date="Thursday" iconPhrase="Light rain" />
+      <TemperatureInfo
+        date={dailyForecast.Date}
+        iconPhrase={dailyForecast.Day.IconPhrase}
+      />
     </Container>
   );
 }

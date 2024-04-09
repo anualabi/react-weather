@@ -1,6 +1,7 @@
 import { H2 } from "@/components/ui";
-import { CitySearch, CurrentWeather } from "./(hero-section)";
+import { DailyWeatherEvolution } from "./(chart-section)";
 import { ForecastList } from "./(forecast-section)";
+import { CitySearch, CurrentWeather } from "./(hero-section)";
 
 export default function Home() {
   return (
@@ -16,6 +17,12 @@ export default function Home() {
       <section className="min-h-96 max-w-7xl mx-auto my-32 px-5">
         <H2 className="uppercase text-accent font-bold">5 Days Forecast</H2>
         <ForecastList />
+      </section>
+      <section className="bg-secondary min-h-96 my-32 px-5">
+        <div className="max-w-7xl mx-auto py-24">
+          <H2 className="uppercase text-white font-bold">Daily Evolution</H2>
+          <DailyWeatherEvolution />
+        </div>
       </section>
     </main>
   );

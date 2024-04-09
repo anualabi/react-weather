@@ -20,4 +20,20 @@ const H2 = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement>>(
 );
 H2.displayName = "H2";
 
-export { H2 };
+const P = forwardRef<
+  HTMLParagraphElement,
+  HTMLAttributes<HTMLParagraphElement>
+>(({ className, children, ...props }, ref) => {
+  return (
+    <p
+      {...props}
+      ref={ref}
+      className={cn("text-lg md:text-xl xl:text-2xl", className)}
+    >
+      {children}
+    </p>
+  );
+});
+P.displayName = "P";
+
+export { H2, P };

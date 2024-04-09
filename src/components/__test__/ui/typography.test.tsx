@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import { H2 } from "@/components/ui/typography";
+import { H2, P } from "@/components/ui/typography";
 
 const mockProps = {
   children: "Test Typography",
@@ -23,5 +23,24 @@ describe("H2", () => {
     render(<H2 {...mockProps} />);
     const h2Element = screen.getByText(mockProps.children);
     expect(h2Element).toBeInTheDocument();
+  });
+});
+
+describe("P", () => {
+  it("should render (snapshot)", () => {
+    const { asFragment } = render(<P {...mockProps} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should render a p HTML element", () => {
+    render(<P {...mockProps} />);
+    const pElement = screen.getByText("Test Typography");
+    expect(pElement.tagName).toBe("P");
+  });
+
+  it("should render its children", () => {
+    render(<P {...mockProps} />);
+    const pElement = screen.getByText(mockProps.children);
+    expect(pElement).toBeInTheDocument();
   });
 });

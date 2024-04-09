@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GradientBox should render (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-gradient-to-b from-transparent from-0% via-[#C4C4C405] via-43.85% to-[#C4C4C420] to-100% rounded-md"
+  >
+    <div>
+      children
+    </div>
+  </div>
+</DocumentFragment>
+`;

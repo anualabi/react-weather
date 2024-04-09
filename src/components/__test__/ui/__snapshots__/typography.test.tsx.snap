@@ -9,3 +9,13 @@ exports[`H2 should render (snapshot) 1`] = `
   </h2>
 </DocumentFragment>
 `;
+
+exports[`P should render (snapshot) 1`] = `
+<DocumentFragment>
+  <p
+    class="text-lg md:text-xl xl:text-2xl"
+  >
+    Test Typography
+  </p>
+</DocumentFragment>
+`;

@@ -1,4 +1,6 @@
+import { H2 } from "@/components/ui";
 import { CitySearch, CurrentWeather } from "./(hero-section)";
+import { ForecastList } from "./(forecast-section)";
 
 export default function Home() {
   return (
@@ -10,6 +12,10 @@ export default function Home() {
         <div className="flex-1 bg-secondary">
           <CurrentWeather />
         </div>
+      </section>
+      <section className="min-h-96 max-w-7xl mx-auto my-32 px-5">
+        <H2 className="uppercase text-accent font-bold">5 Days Forecast</H2>
+        <ForecastList />
       </section>
     </main>
   );

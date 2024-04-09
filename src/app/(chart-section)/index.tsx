@@ -1,1 +1,2 @@
-export { default as DailyWeatherEvolution } from "./daily-weather-evolution";
+export { default as DailyEvolution } from "./daily-evolution";
+export { default as DailyEvolutionLoading } from "./daily-evolution-loading";

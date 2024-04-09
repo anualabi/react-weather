@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import NoCityFound from "@/components/no-city-found";
 import { H2 } from "@/components/ui";
 import { getCity } from "@/lib/services";
-import { DailyWeatherEvolution } from "./(chart-section)";
+import { DailyEvolution, DailyEvolutionLoading } from "./(chart-section)";
 import { ForecastList, ForecastListLoading } from "./(forecast-section)";
 import {
   CitySearch,
@@ -18,7 +18,6 @@ type HomeProps = Readonly<{
 }>;
 
 export default async function Home({ searchParams }: HomeProps) {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
   const city = searchParams?.city ?? "Amsterdam";
 
   const cities = await getCity(city);
@@ -46,7 +45,9 @@ export default async function Home({ searchParams }: HomeProps) {
       <section className="bg-secondary min-h-96 my-32 px-5">
         <div className="max-w-7xl mx-auto py-24">
           <H2 className="uppercase text-white font-bold">Daily Evolution</H2>
-          <DailyWeatherEvolution />
+          <Suspense fallback={<DailyEvolutionLoading />}>
+            <DailyEvolution cityKey={cities[0].Key} />
+          </Suspense>
         </div>
       </section>
     </main>

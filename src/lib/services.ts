@@ -1,4 +1,8 @@
-import { DailyForecastAPIResponse, LocationAPIResponse } from "./types";
+import {
+  DailyForecastAPIResponse,
+  HourlyForecastAPIResponse,
+  LocationAPIResponse,
+} from "./types";
 
 const API_KEY = process.env.ACCUWEATHER_API_KEY;
 const API_URL = process.env.ACCUWEATHER_API_URL;
@@ -27,5 +31,16 @@ export function getDailyForecast(
   if (![1, 5].includes(days)) throw new Error("Unsupported forecast duration");
   return fetchFromAPI(
     `${API_URL}/forecasts/v1/daily/${days}day/${cityKey}?apikey=${API_KEY}`
+  );
+}
+
+export function getHourlyForecast(
+  cityKey: string,
+  hours: number = 12
+): Promise<HourlyForecastAPIResponse[]> {
+  if (![1, 12, 24, 72].includes(hours))
+    throw new Error("Unsupported forecast duration");
+  return fetchFromAPI(
+    `${API_URL}/forecasts/v1/hourly/${hours}hour/${cityKey}?apikey=${API_KEY}`
   );
 }

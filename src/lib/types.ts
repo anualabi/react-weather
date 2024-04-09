@@ -54,3 +54,20 @@ export type DailyForecastAPIResponse = {
   };
   DailyForecasts: DailyForecast[];
 };
+
+export type HourlyForecastAPIResponse = {
+  DateTime: Date;
+  EpochDateTime: number;
+  WeatherIcon: number;
+  IconPhrase: string;
+  HasPrecipitation: boolean;
+  PrecipitationType: string;
+  PrecipitationIntensity: string;
+  IsDaylight: false;
+  Temperature: {
+    Value: number;
+    Unit: TemperatureUnit;
+    UnitType: number;
+  };
+  PrecipitationProbability: number;
+};

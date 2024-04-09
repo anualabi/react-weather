@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label should render (snapshot) 1`] = `
+<DocumentFragment>
+  <label
+    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  >
+    Test Label
+  </label>
+</DocumentFragment>
+`;

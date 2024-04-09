@@ -1,8 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
+
 import { H2 } from "@/components/ui";
 import { useToggleTemperatureStore } from "@/stores/ToggleTemperatureStore";
-import { useEffect } from "react";
 
 type CityDisplayProps = Readonly<{
   cityName: string;

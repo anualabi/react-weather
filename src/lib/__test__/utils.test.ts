@@ -1,4 +1,4 @@
-import { getDayOfWeek, formatDate } from "@/lib/utils";
+import { formatDate, getDayOfWeek } from "@/lib/utils";
 
 describe("getDayOfWeek", () => {
   it("should return the correct day of the week", () => {

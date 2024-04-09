@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`H2 should render (snapshot) 1`] = `
+<DocumentFragment>
+  <h2
+    class="scroll-m-20 text-2xl md:text-3xl xl:text-4xl"
+  >
+    Test Typography
+  </h2>
+</DocumentFragment>
+`;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo should render (snapshot) 1`] = `
+<DocumentFragment>
+  <a
+    href="/"
+  >
+    <h2
+      class="scroll-m-20 text-2xl md:text-3xl xl:text-4xl text-white font-black capitalize"
+    >
+      React Weather
+    </h2>
+  </a>
+</DocumentFragment>
+`;

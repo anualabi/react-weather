@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar should render (snapshot) 1`] = `
+<DocumentFragment>
+  <nav
+    class="bg-secondary h-16 md:h-20 xl:h-24 flex items-center"
+  >
+    <div
+      class="max-w-[1440px] w-full mx-auto px-5 xl:px-11"
+    >
+      <a
+        href="/"
+      >
+        <h2
+          class="scroll-m-20 text-2xl md:text-3xl xl:text-4xl text-white font-black capitalize"
+        >
+          React Weather
+        </h2>
+      </a>
+    </div>
+  </nav>
+</DocumentFragment>
+`;

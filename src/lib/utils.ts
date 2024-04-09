@@ -11,3 +11,8 @@ export function cn(...inputs: ClassValue[]) {
 export function getDayOfWeek(date: Date): string {
   return format(date, "EEEE");
 }
+
+// Function for getting the formatted date "Fri 29" from a date string
+export function formatDate(date: Date): string {
+  return format(date, "EEE dd");
+}

@@ -1,9 +1,15 @@
+import { Suspense } from "react";
+
 import NoCityFound from "@/components/no-city-found";
 import { H2 } from "@/components/ui";
 import { getCity } from "@/lib/services";
 import { DailyWeatherEvolution } from "./(chart-section)";
-import { ForecastList } from "./(forecast-section)";
-import { CitySearch, CurrentWeather } from "./(hero-section)";
+import { ForecastList, ForecastListLoading } from "./(forecast-section)";
+import {
+  CitySearch,
+  CurrentWeather,
+  CurrentWeatherLoading,
+} from "./(hero-section)";
 
 type HomeProps = Readonly<{
   searchParams: {
@@ -12,6 +18,7 @@ type HomeProps = Readonly<{
 }>;
 
 export default async function Home({ searchParams }: HomeProps) {
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   const city = searchParams?.city ?? "Amsterdam";
 
   const cities = await getCity(city);
@@ -25,12 +32,16 @@ export default async function Home({ searchParams }: HomeProps) {
           <CitySearch />
         </div>
         <div className="flex-1 bg-secondary">
-          <CurrentWeather city={cities[0]} />
+          <Suspense fallback={<CurrentWeatherLoading />}>
+            <CurrentWeather city={cities[0]} />
+          </Suspense>
         </div>
       </section>
       <section className="min-h-96 max-w-7xl mx-auto my-32 px-5">
         <H2 className="uppercase text-accent font-bold">5 Days Forecast</H2>
-        <ForecastList />
+        <Suspense fallback={<ForecastListLoading />}>
+          <ForecastList cityKey={cities[0].Key} />
+        </Suspense>
       </section>
       <section className="bg-secondary min-h-96 my-32 px-5">
         <div className="max-w-7xl mx-auto py-24">

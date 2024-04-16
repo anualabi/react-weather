@@ -7,7 +7,7 @@ export type ContainerProps = Readonly<{
 
 export default function Container({ children, className }: ContainerProps) {
   return (
-    <div className={cn("max-w-[1440px] w-full mx-auto px-5", className)}>
+    <div className={cn("mx-auto w-full max-w-[1440px] px-5", className)}>
       {children}
     </div>
   );

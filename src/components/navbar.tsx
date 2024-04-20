@@ -3,7 +3,7 @@ import Logo from "@/components/logo";
 
 export default function Navbar() {
   return (
-    <nav className="bg-secondary h-16 md:h-20 xl:h-24 flex items-center">
+    <nav className="flex h-16 items-center bg-secondary md:h-20 xl:h-24">
       <Container className="xl:px-11">
         <Logo />
       </Container>

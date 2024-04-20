@@ -3,7 +3,7 @@
 exports[`Navbar should render (snapshot) 1`] = `
 <DocumentFragment>
   <nav
-    class="bg-secondary h-16 md:h-20 xl:h-24 flex items-center"
+    class="flex h-16 items-center bg-secondary md:h-20 xl:h-24"
   >
     <div
       class="mx-auto w-full max-w-[1440px] px-5 xl:px-11"

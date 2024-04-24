@@ -15,9 +15,9 @@ export default async function CurrentWeather({ city }: CurrentWeatherProps) {
   const dailyForecast = forecast.DailyForecasts[0];
 
   return (
-    <Container className="h-full flex flex-col items-center justify-center">
+    <Container className="flex h-full flex-col items-center justify-center">
       <CityDisplay cityName={city.EnglishName} countryId={city.Country.ID} />
-      <div className="flex items-center mb-7">
+      <div className="mb-7 flex items-center">
         <TemperatureValue value={dailyForecast.Temperature.Maximum.Value} />
         <TemperatureToggle />
       </div>

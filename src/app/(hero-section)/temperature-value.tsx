@@ -24,7 +24,7 @@ export default function TemperatureValue({
   }, [initialValue, setTemperatureValue]);
 
   return (
-    <P className="text-accent font-normal mr-8 md:mr-12 xl:mr-16">
+    <P className="mr-8 font-normal text-accent md:mr-12 xl:mr-16">
       <span className="text-6xl md:text-7xl xl:text-8xl">
         {temperatureValue ?? initialValue}&deg;
       </span>

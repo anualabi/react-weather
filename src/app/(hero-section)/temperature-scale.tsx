@@ -23,15 +23,15 @@ export default function TemperatureScale({
 
   return (
     <button
-      className="w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12 rounded-md"
+      className="h-8 w-8 rounded-md md:h-10 md:w-10 xl:h-12 xl:w-12"
       onClick={() => {
         if (temperatureUnit !== unit) toggleTemperature();
       }}
     >
-      <GradientBox className="w-full h-full">
+      <GradientBox className="h-full w-full">
         <P
           className={cn(
-            "flex items-center justify-center font-black text-accent text-xl md:text-2xl xl:text-4xl",
+            "flex items-center justify-center text-xl font-black text-accent md:text-2xl xl:text-4xl",
             className,
             { "text-zinc-500": temperatureUnit !== unit }
           )}

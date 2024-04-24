@@ -21,10 +21,10 @@ export default function CitySearchInput({ minSearchLength = 3 }) {
   }, 1000);
 
   return (
-    <Container className="max-w-xl mx-auto flex flex-col justify-center">
+    <Container className="mx-auto flex max-w-xl flex-col justify-center">
       <Label
         htmlFor="city-search"
-        className="capitalize mb-1 text-lg font-normal text-accent md:mb-2 xl:mb-3"
+        className="mb-1 text-lg font-normal capitalize text-accent md:mb-2 xl:mb-3"
       >
         City Name
       </Label>

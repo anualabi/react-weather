@@ -20,7 +20,7 @@ export default function CityDisplay({ cityName, countryId }: CityDisplayProps) {
   }, [cityName, countryId, resetTemperatureUnit]);
 
   return (
-    <H2 className="text-white mb-5 font-black md:mb-7 xl:mb-9">
+    <H2 className="mb-5 font-black text-white md:mb-7 xl:mb-9">
       {cityName}, {countryId}
     </H2>
   );

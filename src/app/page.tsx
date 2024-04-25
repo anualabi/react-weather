@@ -26,8 +26,8 @@ export default async function Home({ searchParams }: HomeProps) {
   }
   return (
     <main>
-      <section className="flex flex-col h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] xl:h-[calc(100vh-96px)]">
-        <div className="flex items-center justify-center h-52 md:h-60 xl:h-72">
+      <section className="flex h-[calc(100vh-64px)] flex-col md:h-[calc(100vh-80px)] xl:h-[calc(100vh-96px)]">
+        <div className="flex h-52 items-center justify-center md:h-60 xl:h-72">
           <CitySearch />
         </div>
         <div className="flex-1 bg-secondary">
@@ -36,15 +36,15 @@ export default async function Home({ searchParams }: HomeProps) {
           </Suspense>
         </div>
       </section>
-      <section className="min-h-96 max-w-7xl mx-auto my-32 px-5">
-        <H2 className="uppercase text-accent font-bold">5 Days Forecast</H2>
+      <section className="mx-auto my-32 min-h-96 max-w-7xl px-5">
+        <H2 className="font-bold uppercase text-accent">5 Days Forecast</H2>
         <Suspense fallback={<ForecastListLoading />}>
           <ForecastList cityKey={cities[0].Key} />
         </Suspense>
       </section>
-      <section className="bg-secondary min-h-96 my-32 px-5">
-        <div className="max-w-7xl mx-auto py-24">
-          <H2 className="uppercase text-white font-bold">Daily Evolution</H2>
+      <section className="my-32 min-h-96 bg-secondary px-5">
+        <div className="mx-auto max-w-7xl py-24">
+          <H2 className="font-bold uppercase text-white">Daily Evolution</H2>
           <Suspense fallback={<DailyEvolutionLoading />}>
             <DailyEvolution cityKey={cities[0].Key} />
           </Suspense>

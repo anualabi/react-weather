@@ -15,8 +15,8 @@ export default function Error({
   }, [error]);
 
   return (
-    <Container className="flex flex-col items-center my-10">
-      <H2 className="text-white mb-4">{error.message}</H2>
+    <Container className="my-10 flex flex-col items-center">
+      <H2 className="mb-4 text-white">{error.message}</H2>
     </Container>
   );
 }
